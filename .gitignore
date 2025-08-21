@@ -38,8 +38,21 @@ jspm_packages
 # Ignore the default SQLite database.
 db/*.sqlite3
 db/*.sqlite3-journal
+db/*.sqlite3-shm
+db/*.sqlite3-wal
 
 # Ignore all logfiles and tempfiles.
 log/
 !/log/.keep
 tmp/
+
+# Rails 7.1 specific ignores
+/config/master.key
+/config/credentials/*.key
+/storage/*
+!/storage/.keep
+/tmp/*
+!/tmp/.keep
+/coverage/
+.env
+.env.*
