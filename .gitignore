@@ -36,8 +36,20 @@ jspm_packages
 /.bundle
 
 # Ignore the default SQLite database.
-db/*.sqlite3
+db/*.sqlite3*
 db/*.sqlite3-journal
+
+# Rails specific ignores
+/log/
+/tmp/
+/public/assets/
+/public/packs/
+/storage/
+/coverage/
+/vendor/bundle/
+/node_modules/
+/yarn-error.log
+/byebug_history
 db/*.sqlite3-shm
 db/*.sqlite3-wal
 
