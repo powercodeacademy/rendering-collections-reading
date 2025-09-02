@@ -14,30 +14,23 @@ see how Rails can abstract this into a nicer syntax.
 
 ## Lesson
 
-Make sure you run `rake db:migrate` and `rake db:seed` before you test out the
-app in your browser. Because this lesson focuses on using the `collection`
-keyword with partials, we've hard-coded in the connection between authors and
-posts. In the posts controller create action, we link the newly created post
-with the first author in the database.
+Make sure you run `bin/rails db:migrate` and `bin/rails db:seed` before testing the app in your browser. This lesson focuses on using the `collection` keyword with partials. The connection between authors and posts is hard-coded. In the posts controller create action, the newly created post is linked with the first author in the database.
 
-Currently, our `posts#index` view is manually rendering the partial in a loop.
+Currently, the `posts#index` view manually renders the partial in a loop:
 
 ```erb
 <% @posts.each do |post| %>
-  <%= render :partial => "post", {:locals => {:post => post}} %>
+  <%= render partial: "post", locals: { post: post } %>
 <% end %>
-```
+```erb
 
-Rails offers a great way to render a collection using a partial by passing the
-collection option to the render method.
+Rails provides a cleaner way to render a collection using a partial:
 
 ```erb
-<%= render :partial => "post", :collection => @posts %>
+<%= render partial: "post", collection: @posts %>
 ```
 
-Our code is tighter and both more abstract and more clear. Another even more
-abstract method Rails gives us to do this is passing an array directly to the
-render method.
+This approach is more concise and clear. You can also pass an array directly to the render method:
 
 ```erb
 <%= render @posts %>
